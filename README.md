@@ -8,10 +8,7 @@ To push to apiiro nuget package:
 ```bash
 cd src/Bitbucket.Net
 dotnet pack --configuration Release
-dotnet nuget push src/Mongo2Go/bin/Release/Mongo2Go.*.nupkg --source "github" --skip-duplicate --no-symbols true
-// or
-dotnet tool install gpr -g
-~/.dotnet/tools/gpr push src/Mongo2Go/bin/Release/Mongo2Go.*.nupkg --repository https://github.com/apiiro/Mongo2Go -k <PAT>
+dotnet nuget push src/Mongo2Go/bin/Release/Apiiro.Mongo2Go.*.nupkg --source "github" --skip-duplicate --no-symbols true
 ```
 
 [![Build Status](https://travis-ci.org/Mongo2Go/Mongo2Go.svg?branch=master)](https://travis-ci.org/Mongo2Go/Mongo2Go) Linux Build (Ubuntu Trusty)           

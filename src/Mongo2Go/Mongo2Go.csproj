@@ -26,4 +26,11 @@
     <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="../../tools/**/mongo*">
+        <Pack>true</Pack>
+        <PackagePath>contentFiles\any\any;content</PackagePath>
+    </Content>
+  </ItemGroup>
+
 </Project>

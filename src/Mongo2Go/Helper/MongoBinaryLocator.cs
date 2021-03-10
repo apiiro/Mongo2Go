@@ -11,9 +11,9 @@ namespace Mongo2Go.Helper
     {
         private readonly string _nugetPrefix = Path.Combine("packages", "Apiiro.Mongo2Go*");
         private readonly string _nugetCachePrefix = Path.Combine("packages", "apiiro.mongo2go", "*");
-        public const string DefaultWindowsSearchPattern = @"tools\mongodb-win32*\bin";
-        public const string DefaultLinuxSearchPattern = "*/tools/mongodb-linux*/bin";
-        public const string DefaultOsxSearchPattern = "tools/mongodb-osx*/bin";
+        public const string DefaultWindowsSearchPattern = @"**\mongodb-win32*\bin";
+        public const string DefaultLinuxSearchPattern = "*/**/mongodb-linux*/bin";
+        public const string DefaultOsxSearchPattern = "**/mongodb-osx*/bin";
         public const string WindowsNugetCacheLocation = @"%USERPROFILE%\.nuget\packages";
         public static readonly string OsxAndLinuxNugetCacheLocation = Environment.GetEnvironmentVariable("HOME") + "/.nuget/packages/apiiro.mongo2go";
         private string _binFolder = string.Empty;

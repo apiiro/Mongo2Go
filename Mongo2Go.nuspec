@@ -3,10 +3,10 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
 
-        <id>Mongo2Go</id>
+        <id>Apiiro.Mongo2Go</id>
         <version>2.2.16</version>
 
-        <title>Mongo2Go</title>
+        <title>Apiiro.Mongo2Go</title>
         <authors>Johannes Hoppe and many contributors</authors>
 
         <owners>Johannes Hoppe</owners>
@@ -29,6 +29,8 @@ Mongo2Go has two use cases:
 
         <projectUrl>http://github.com/Mongo2Go/Mongo2Go</projectUrl>
         <iconUrl>https://raw.github.com/Mongo2Go/Mongo2Go/master/src/mongo2go_200_200.png</iconUrl>
+
+        <repository type="git" url="https://github.com/apiiro/Mongo2Go" />
 
     </metadata>
     <files>

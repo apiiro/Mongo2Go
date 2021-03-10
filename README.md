@@ -3,6 +3,17 @@ Mongo2Go - MongoDB for integration tests & local debugging
 
 ![Logo](src/mongo2go_200_200.png)
 
+To push to apiiro nuget package:
+
+```bash
+cd src/Bitbucket.Net
+dotnet pack --configuration Release
+dotnet nuget push src/Mongo2Go/bin/Release/Mongo2Go.*.nupkg --source "github" --skip-duplicate --no-symbols true
+// or
+dotnet tool install gpr -g
+~/.dotnet/tools/gpr push src/Mongo2Go/bin/Release/Mongo2Go.*.nupkg --repository https://github.com/apiiro/Mongo2Go -k <PAT>
+```
+
 [![Build Status](https://travis-ci.org/Mongo2Go/Mongo2Go.svg?branch=master)](https://travis-ci.org/Mongo2Go/Mongo2Go) Linux Build (Ubuntu Trusty)           
  [![Build status](https://ci.appveyor.com/api/projects/status/u9mp0ceh57sdsx97/branch/master?svg=true)](https://ci.appveyor.com/project/JohannesHoppe/mongo2go-pc320/branch/master) Windows Build (Windows Server 2016)
 

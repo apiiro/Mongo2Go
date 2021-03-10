@@ -14,7 +14,7 @@
     <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
-    <Version>2.2.19</Version>
+    <Version>2.2.22</Version>
     <RepositoryUrl>http://github.com/apiiro/Mongo2Go</RepositoryUrl>
     <PackageIconUrl>https://raw.github.com/Mongo2Go/Mongo2Go/master/src/mongo2go_200_200.png</PackageIconUrl>
   </PropertyGroup>
@@ -29,7 +29,7 @@
   <ItemGroup>
     <Content Include="../../tools/**/mongo*">
         <Pack>true</Pack>
-        <PackagePath>contentFiles\any\any;content</PackagePath>
+        <PackagePath>tools</PackagePath>
     </Content>
   </ItemGroup>
 

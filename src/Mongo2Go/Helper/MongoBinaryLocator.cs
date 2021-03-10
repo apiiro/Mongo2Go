@@ -9,13 +9,13 @@ namespace Mongo2Go.Helper
 
     public class MongoBinaryLocator : IMongoBinaryLocator
     {
-        private readonly string _nugetPrefix = Path.Combine("packages", "Mongo2Go*");
-        private readonly string _nugetCachePrefix = Path.Combine("packages", "mongo2go", "*");
+        private readonly string _nugetPrefix = Path.Combine("packages", "Apiiro.Mongo2Go*");
+        private readonly string _nugetCachePrefix = Path.Combine("packages", "apiiro.mongo2go", "*");
         public const string DefaultWindowsSearchPattern = @"tools\mongodb-win32*\bin";
         public const string DefaultLinuxSearchPattern = "*/tools/mongodb-linux*/bin";
         public const string DefaultOsxSearchPattern = "tools/mongodb-osx*/bin";
         public const string WindowsNugetCacheLocation = @"%USERPROFILE%\.nuget\packages";
-        public static readonly string OsxAndLinuxNugetCacheLocation = Environment.GetEnvironmentVariable("HOME") + "/.nuget/packages/mongo2go";
+        public static readonly string OsxAndLinuxNugetCacheLocation = Environment.GetEnvironmentVariable("HOME") + "/.nuget/packages/apiiro.mongo2go";
         private string _binFolder = string.Empty;
         private readonly string _searchPattern;
         private readonly string _nugetCacheDirectory;

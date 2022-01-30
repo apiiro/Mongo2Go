@@ -74,15 +74,6 @@ namespace Mongo2Go.Helper
             process.ErrorDataReceived += OnProcessOnErrorDataReceived;
             process.OutputDataReceived += OnProcessOnOutputDataReceived;
 
-            void DebugOutputHandler(object sender, DataReceivedEventArgs args) => Debug.WriteLine(args.Data);
-            void ConsoleOutputHandler(object sender, DataReceivedEventArgs args) => Console.WriteLine(args.Data);
-
-            //Writing to debug trace & console to enable test runners to capture the output
-            process.ErrorDataReceived += DebugOutputHandler;
-            process.ErrorDataReceived += ConsoleOutputHandler;
-            process.OutputDataReceived += DebugOutputHandler;
-            process.OutputDataReceived += ConsoleOutputHandler;
-
             process.Start();
 
             process.BeginErrorReadLine();

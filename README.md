@@ -6,7 +6,7 @@ Mongo2Go - MongoDB for integration tests & local debugging
 To push to apiiro nuget package:
 
 ```bash
-cd src/Bitbucket.Net
+rm src/Mongo2Go/bin/Release/Apiiro.Mongo2Go.*.nupkg
 dotnet pack --configuration Release
 dotnet nuget push src/Mongo2Go/bin/Release/Apiiro.Mongo2Go.*.nupkg --source "github" --skip-duplicate --no-symbols true
 ```

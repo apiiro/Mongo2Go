@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using Mongo2Go.Helper;
@@ -31,9 +32,11 @@ namespace Mongo2Go
         /// On dispose: kills them and deletes their data directory
         /// </summary>
         /// <remarks>Should be used for integration tests</remarks>
-        public static MongoDbRunner Start(string dataDirectory = null, string binariesSearchPatternOverride = null, string binariesSearchDirectory = null, bool singleNodeReplSet = false, string additionalMongodArguments = null, ushort singleNodeReplSetWaitTimeout = MongoDbDefaults.SingleNodeReplicaSetWaitTimeout)
+        public static MongoDbRunner Start(string dataDirectory = null, string binariesSearchPatternOverride = null, string binariesSearchDirectory = null, bool singleNodeReplSet = false, string additionalMongodArguments = null,
+            ushort singleNodeReplSetWaitTimeout = MongoDbDefaults.SingleNodeReplicaSetWaitTimeout)
         {
-            if (dataDirectory == null) {
+            if (dataDirectory == null)
+            {
                 dataDirectory = CreateTemporaryDataDirectory();
             }
 
@@ -82,7 +85,8 @@ namespace Mongo2Go
         /// Should be used for local debugging only
         /// WARNING: one single instance on one single machine is not a suitable setup for productive environments!!!
         /// </remarks>
-        public static MongoDbRunner StartForDebugging(string dataDirectory = null, string binariesSearchPatternOverride = null, string binariesSearchDirectory = null, bool singleNodeReplSet = false, int port = MongoDbDefaults.DefaultPort, string additionalMongodArguments = null, ushort singleNodeReplSetWaitTimeout = MongoDbDefaults.SingleNodeReplicaSetWaitTimeout)
+        public static MongoDbRunner StartForDebugging(string dataDirectory = null, string binariesSearchPatternOverride = null, string binariesSearchDirectory = null, bool singleNodeReplSet = false, int port = MongoDbDefaults.DefaultPort,
+            string additionalMongodArguments = null, ushort singleNodeReplSetWaitTimeout = MongoDbDefaults.SingleNodeReplicaSetWaitTimeout)
         {
             return new MongoDbRunner(
                 new ProcessWatcher(),
@@ -138,7 +142,8 @@ namespace Mongo2Go
         /// <summary>
         /// usage: local debugging
         /// </summary>
-        private MongoDbRunner(IProcessWatcher processWatcher, IPortWatcher portWatcher, IFileSystem fileSystem, IMongoDbProcessStarter processStarter, IMongoBinaryLocator mongoBin, int port, string dataDirectory = null, bool singleNodeReplSet = false, string additionalMongodArguments = null, ushort singleNodeReplSetWaitTimeout = MongoDbDefaults.SingleNodeReplicaSetWaitTimeout)
+        private MongoDbRunner(IProcessWatcher processWatcher, IPortWatcher portWatcher, IFileSystem fileSystem, IMongoDbProcessStarter processStarter, IMongoBinaryLocator mongoBin, int port, string dataDirectory = null,
+            bool singleNodeReplSet = false, string additionalMongodArguments = null, ushort singleNodeReplSetWaitTimeout = MongoDbDefaults.SingleNodeReplicaSetWaitTimeout)
         {
             _fileSystem = fileSystem;
             _mongoBin = mongoBin;
@@ -161,7 +166,8 @@ namespace Mongo2Go
                 throw new MongoDbPortAlreadyTakenException("MongoDB can't be started. The TCP port {0} is already taken.".Formatted(_port));
             }
 
-            if (dataDirectory == null) {
+            if (dataDirectory == null)
+            {
                 dataDirectory = CreateTemporaryDataDirectory();
             }
 
@@ -175,13 +181,15 @@ namespace Mongo2Go
         /// <summary>
         /// usage: integration tests
         /// </summary>
-        private MongoDbRunner(IPortPool portPool, IFileSystem fileSystem, IMongoDbProcessStarter processStarter, IMongoBinaryLocator mongoBin, string dataDirectory = null, bool singleNodeReplSet = false, string additionalMongodArguments = null, ushort singleNodeReplSetWaitTimeout = MongoDbDefaults.SingleNodeReplicaSetWaitTimeout)
+        private MongoDbRunner(IPortPool portPool, IFileSystem fileSystem, IMongoDbProcessStarter processStarter, IMongoBinaryLocator mongoBin, string dataDirectory = null, bool singleNodeReplSet = false, string additionalMongodArguments = null,
+            ushort singleNodeReplSetWaitTimeout = MongoDbDefaults.SingleNodeReplicaSetWaitTimeout)
         {
             _fileSystem = fileSystem;
             _port = portPool.GetNextOpenPort();
             _mongoBin = mongoBin;
 
-            if (dataDirectory == null) {
+            if (dataDirectory == null)
+            {
                 dataDirectory = CreateTemporaryDataDirectory();
             }
 
@@ -211,10 +219,15 @@ namespace Mongo2Go
             }
         }
 
-        private static string CreateTemporaryDataDirectory() {
+        private static string CreateTemporaryDataDirectory()
+        {
             var path = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
             Directory.CreateDirectory(path);
             return path;
         }
+
+        public IEnumerable<string> MongoProcessStandardOutput => _mongoDbProcess.StandardOutput;
+
+        public IEnumerable<string> MongoProcessErrorOutput => _mongoDbProcess.ErrorOutput;
     }
 }
